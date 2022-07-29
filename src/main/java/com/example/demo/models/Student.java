@@ -3,6 +3,8 @@ package com.example.demo.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -10,7 +12,10 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer Id;
+
     private String name;
     private String department;
     private String updatedBy;
