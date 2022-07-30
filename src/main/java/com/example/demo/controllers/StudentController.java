@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
@@ -18,8 +19,11 @@ import java.util.Optional;
 @RequestMapping("/students")
 public class StudentController {
 
+
     @Autowired
     private StudentService studentService;
+
+    public String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
     @RequestMapping("/getAll")
     public String getAll(Model model){
@@ -36,12 +40,21 @@ public class StudentController {
 
     @PostMapping("/addNew")
     public String addNew(Student student){
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
         student.setUpdatedBy("PotatoBoss");
         student.setUpdatedOn(timeStamp);
         studentService.addNew(student);
         return "redirect:/students/getAll";
     }
+
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Student student){
+        student.setUpdatedBy("PotatoBoss");
+        student.setUpdatedOn(timeStamp);
+        System.out.println(student.getId());
+        studentService.update(student);
+        return "redirect:/students/getAll";
+    }
+
 
 
 

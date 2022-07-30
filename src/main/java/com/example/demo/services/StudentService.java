@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.models.Student;
 import com.example.demo.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public List<Student> getAll(){
-        return (List<Student>) studentRepository.findAll();
+        return studentRepository.mySort();
     }
 
     public Optional<Student> getOne(Integer Id){
@@ -25,4 +26,11 @@ public class StudentService {
     public void addNew(Student student){
         studentRepository.save(student);
     }
+
+
+    public void update(Student student){
+        studentRepository.save(student);
+    }
+
+
 }
