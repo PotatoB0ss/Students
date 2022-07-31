@@ -50,7 +50,6 @@ public class StudentController {
     public String update(Student student){
         student.setUpdatedBy("PotatoBoss");
         student.setUpdatedOn(timeStamp);
-        System.out.println(student.getId());
         studentService.update(student);
         return "redirect:/students/getAll";
     }

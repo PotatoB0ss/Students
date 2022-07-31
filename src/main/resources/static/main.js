@@ -5,7 +5,7 @@
 
  $('document').ready(function (){
 
-    $('.table .btn').on('click', function (event){
+    $('.table .btn-warning').on('click', function (event){
 
         event.preventDefault();
 

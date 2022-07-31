@@ -3,7 +3,6 @@ package com.example.demo.services;
 import com.example.demo.models.Student;
 import com.example.demo.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public List<Student> getAll(){
-        return studentRepository.mySort();
+        return studentRepository.findAllByOrderByIdAsc();
     }
 
     public Optional<Student> getOne(Integer Id){

@@ -14,7 +14,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer Id;
+    private Integer id;
 
     private String name;
     private String department;
@@ -24,7 +24,7 @@ public class Student {
     private String updatedOn;
 
     public Student(Integer id, String name, String department, String updatedBy, String updatedOn) {
-        Id = id;
+        this.id = id;
         this.name = name;
         this.department = department;
         this.updatedBy = updatedBy;
@@ -36,11 +36,11 @@ public class Student {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -78,7 +78,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
                 ", updatedBy='" + updatedBy + '\'' +
