@@ -54,6 +54,13 @@ public class StudentController {
         return "redirect:/students/getAll";
     }
 
+    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id){
+        System.out.println(id);
+        studentService.delete(id);
+        return "redirect:/students/getAll";
+    }
+
 
 
 

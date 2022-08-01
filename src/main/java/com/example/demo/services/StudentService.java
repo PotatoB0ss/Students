@@ -31,5 +31,9 @@ public class StudentService {
         studentRepository.save(student);
     }
 
+    public void delete(Integer id){
+        studentRepository.deleteById(id);
+    }
+
 
 }
